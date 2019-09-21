@@ -86,14 +86,91 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./js/lib/dom.js":
+/*!***********************!*\
+  !*** ./js/lib/dom.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+/**
+ * @param  {string}target @return Array of elements
+ */
+var Dom =
+/*#__PURE__*/
+function () {
+  function Dom() {
+    _classCallCheck(this, Dom);
+  }
+
+  _createClass(Dom, [{
+    key: "getDom",
+    value: function getDom() {}
+  }, {
+    key: "insertDom",
+    value: function insertDom() {}
+  }, {
+    key: "updateDom",
+    value: function updateDom() {}
+  }, {
+    key: "renderDom",
+    value: function renderDom() {}
+  }]);
+
+  return Dom;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (dom);
+
+/***/ }),
+
 /***/ "./js/main.js":
 /*!********************!*\
   !*** ./js/main.js ***!
   \********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-console.log('simple');
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _lib_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/dom */ "./js/lib/dom.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var Startcss =
+/*#__PURE__*/
+function () {
+  function Startcss() {
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    _classCallCheck(this, Startcss);
+
+    this.opt = options;
+  }
+
+  _createClass(Startcss, [{
+    key: "init",
+    value: function init() {}
+  }]);
+
+  return Startcss;
+}();
+
+var app = Object(_lib_dom__WEBPACK_IMPORTED_MODULE_0__["getElemByClass"])("test");
+console.log(app);
 
 /***/ }),
 
