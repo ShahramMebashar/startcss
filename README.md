@@ -9,7 +9,8 @@ Startcss is a simple css framework built with sass,postcss,lost.
 `npm install stratcss -S`
 
 **Download Manually**
-`Simple download or clone this repository`
+
+Simple download or clone this repository
 
 ## Structure
 
