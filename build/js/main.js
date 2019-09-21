@@ -109,6 +109,10 @@ var Dom =
 function () {
   function Dom() {
     _classCallCheck(this, Dom);
+
+    if (!(this instanceof Dom)) {
+      return new Dom();
+    }
   }
 
   _createClass(Dom, [{
@@ -128,7 +132,7 @@ function () {
   return Dom;
 }();
 
-/* harmony default export */ __webpack_exports__["default"] = (dom);
+/* harmony default export */ __webpack_exports__["default"] = (Dom);
 
 /***/ }),
 
@@ -169,7 +173,7 @@ function () {
   return Startcss;
 }();
 
-var app = Object(_lib_dom__WEBPACK_IMPORTED_MODULE_0__["getElemByClass"])("test");
+var app = new _lib_dom__WEBPACK_IMPORTED_MODULE_0__["default"]();
 console.log(app);
 
 /***/ }),

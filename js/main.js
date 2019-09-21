@@ -1,4 +1,4 @@
-import dom, { getElemByClass } from "./lib/dom";
+import Dom, { getElemByClass } from "./lib/dom";
 class Startcss {
   constructor(options = {}) {
     this.opt = options;
@@ -7,5 +7,5 @@ class Startcss {
   init() {}
 }
 
-let app = getElemByClass("test");
+let app = new Dom();
 console.log(app);
