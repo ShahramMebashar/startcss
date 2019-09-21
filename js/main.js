@@ -1,1 +1,1 @@
-console.log('errorss');
+console.log('simple');

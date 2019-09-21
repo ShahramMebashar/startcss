@@ -1,5 +1,4 @@
 const { src, dest, watch, series, parallel } = require('gulp');
-
 const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
@@ -8,27 +7,17 @@ const sourcemaps = require('gulp-sourcemaps');
 const cssnano = require('cssnano');
 const pug = require('gulp-pug');
 const lost = require('lost');
-
+const rename = require('gulp-rename');
+const webpack = require('webpack-stream');
+const named = require('vinyl-named');
 const paths = require('./paths');
 const plugins = [
   lost(),
-  autoprefixer({
-    grid: true,
-    cascade: false,
-  }),
   require('postcss-font-magician')({
-    variants: {
-      montserrat: {
-        '300': [],
-        '400': [],
-        '700': [],
-        '900': [],
-      },
-    },
-    foundries: ['google'],
+    hosted: ['./fonts'],
   }),
-  cssnano({ preset: 'default' }),
 ];
+const devPlugins = plugins.concat([autoprefixer(), cssnano()]);
 
 //css
 function css() {
@@ -56,35 +45,66 @@ function html() {
 
 //Javascript
 function js() {
-  return src(paths.js.src)
-    .pipe(sourcemaps.init({ largeFile: true }))
-    .pipe(sourcemaps.write(paths.maps))
-    .pipe(dest(paths.js.dist));
+  return (
+    src(paths.js.src)
+      //.pipe(sourcemaps.init({ largeFile: true }))
+      .pipe(named())
+      .pipe(webpack(require('./webpack.config')))
+      //.pipe(sourcemaps.write(paths.maps))
+      .pipe(dest(paths.js.dist))
+  );
 }
-
-//Watch
 
 //Server
 function reload(done) {
   browserSync.reload();
 }
 
-function serve() {
-  browserSync.init({
-    server: {
-      baseDir: './build',
+function serve(done) {
+  browserSync.init(
+    {
+      server: {
+        baseDir: './build',
+      },
+      port: 3000,
+      open: true,
     },
-    port: 3000,
-    open: true,
-  });
+    done,
+  );
   watch(paths.watch.scss, css);
   watch(paths.watch.pug, html);
   watch(paths.watch.js).on('change', series(js, reload));
   watch('./build/*.html').on('change', reload);
 }
 
+//Clean styles and javascript
+function cleanCss() {
+  return src(paths.scss.src)
+    .pipe(sass())
+    .pipe(postcss(devPlugins))
+    .pipe(
+      rename({
+        suffix: '.min',
+      }),
+    )
+    .pipe(dest(paths.scss.dist));
+}
+
+function cleanJs() {
+  return src(paths.js.src)
+    .pipe(named())
+    .pipe(webpack(require('./webpack.config.prod')))
+    .pipe(
+      rename({
+        suffix: '.min',
+      }),
+    )
+    .pipe(dest(paths.js.dist));
+}
+
 //Exports
 exports.css = css;
 exports.html = html;
 exports.js = js;
+exports.build = series(cleanCss, cleanJs);
 exports.default = parallel(html, js, css, serve);

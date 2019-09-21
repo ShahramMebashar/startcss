@@ -4,7 +4,8 @@
   "description": "A simpel css framework",
   "main": "index.js",
   "scripts": {
-    "start": "gulp --watch",
+    "start": "NODE_ENV=development gulp --watch",
+    "build": "NODE_ENV=production gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,7 +26,10 @@
   },
   "homepage": "https://github.com/ShahramMebashar/startcss#readme",
   "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
     "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
@@ -36,7 +40,9 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "lost": "^8.3.1",
-    "postcss-font-magician": "^2.2.2"
+    "postcss-font-magician": "^2.2.2",
+    "vinyl-named": "^1.1.0",
+    "webpack-stream": "^5.2.1"
   },
   "dependencies": {}
 }
