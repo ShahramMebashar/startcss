@@ -104,7 +104,7 @@ console.log('simple');
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/np/Desktop/startcss/js/main.js */"./js/main.js");
+module.exports = __webpack_require__(/*! /Users/shahram/Desktop/startcss/js/main.js */"./js/main.js");
 
 
 /***/ })
