@@ -10,11 +10,22 @@ Startcss is a simple css framework built with sass,postcss,lost.
 
 **Download Manually**
 
-Simple download or clone this repository
+Simply download or clone this repository
 
 ## Structure
 
 Folder structure of `Build`:
+
+```
+├── css
+│   │
+│   └── startcss.css
+├── index.html
+└── js
+    ├── main.js
+    └── maps
+        └── main.js.map
+```
 
 ## Components
 
