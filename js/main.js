@@ -7,5 +7,5 @@ class Startcss {
   init() {}
 }
 
-let app = new Dom();
-console.log(app);
+let app = Dom();
+
