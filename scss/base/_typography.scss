@@ -1,0 +1,88 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  color: $font-color;
+  background-color: $background-color;
+  line-height: $font-line-height;
+  -webkit-font-smoothing: antialiased;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+h1 {
+  font-size: 3.375rem;
+  line-height: 1.1;
+}
+h2 {
+  font-size: 2.25rem;
+  line-height: 1.2;
+}
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+h4 {
+  font-size: 1rem;
+  line-height: 1.1;
+}
+h5 {
+  font-size: 0.667rem;
+  line-height: 1.5;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+p,
+ul,
+ol,
+pre,
+table,
+blockquote {
+  margin-top: 0rem;
+  margin-bottom: 1.5rem;
+}
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+
+/* Let's make sure all's aligned */
+hr,
+.hr {
+  border: 1px solid;
+  margin: -1px 0;
+}
+a,
+b,
+i,
+strong,
+em,
+small,
+code {
+  line-height: 0;
+}

@@ -1,0 +1,34 @@
+/*
+*=== Variables
+************/
+//Base colors
+$color--dark: #2f3640 !default;
+$color--light: #f9f9f9 !default;
+$color--success: #44bd32 !default;
+$color--error: #c23616 !default;
+$color--warning: #e1b12c !default;
+$color--info: #0097e6 !default;
+
+
+//Brand colors
+$primary-color: #5f27cd !default;
+$secondary-color: #27CD87 !default;
+$border-color: #dcdde1 !default;
+$background-color: #f5f6fa !default;
+
+
+
+//General Variables
+$base-transition: .3s ease !default;
+
+//Fonts..Text and Heading
+$font-size: 1rem !default;
+$font-size--lg: 1.5rem;
+$font-color: #353b48 !default;
+$font-color--text: #353b48 !default;
+$font-color--heading: #353b48 !default;
+$font-line-height: 1.5 !default;
+$font-line-height--heading: 1.2 !default;
+
+$font-family--trl: 'Kurdish' !default;
+
