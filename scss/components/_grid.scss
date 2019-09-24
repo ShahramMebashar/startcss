@@ -1,0 +1,22 @@
+.outer-container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  @extend %clearfix;
+}
+.inner-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1040px;
+  width: 100%;
+  @extend %clearfix;
+}
+.section--padding {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.row {
+  margin-left: -1rem;
+  margin-right: -1rem;
+  @extend %clearfix;
+}

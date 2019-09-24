@@ -64,7 +64,7 @@ function serve(done) {
   browserSync.init(
     {
       server: {
-        baseDir: './build',
+        baseDir: './',
       },
       port: 3000,
       open: true,
