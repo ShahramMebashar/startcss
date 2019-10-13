@@ -11,13 +11,14 @@ const rename = require('gulp-rename');
 const webpack = require('webpack-stream');
 const named = require('vinyl-named');
 const paths = require('./paths');
+
 const plugins = [
   lost(),
   require('postcss-font-magician')({
     hosted: ['./fonts'],
   }),
 ];
-const devPlugins = plugins.concat([autoprefixer(), cssnano()]);
+const prodPlugins = plugins.concat([autoprefixer(), cssnano()]);
 
 //css
 function css() {
@@ -47,10 +48,10 @@ function html() {
 function js() {
   return (
     src(paths.js.src)
-      //.pipe(sourcemaps.init({ largeFile: true }))
+      .pipe(sourcemaps.init({ largeFile: true }))
       .pipe(named())
       .pipe(webpack(require('./webpack.config')))
-      //.pipe(sourcemaps.write(paths.maps))
+      .pipe(sourcemaps.write(paths.maps))
       .pipe(dest(paths.js.dist))
   );
 }
@@ -60,16 +61,15 @@ function reload(done) {
   browserSync.reload();
 }
 
-function serve(done) {
+function serve() {
   browserSync.init(
     {
       server: {
-        baseDir: './',
+        baseDir: './build',
       },
       port: 3000,
       open: true,
-    },
-    done,
+    }
   );
   watch(paths.watch.scss, css);
   watch(paths.watch.pug, html);
@@ -81,7 +81,7 @@ function serve(done) {
 function cleanCss() {
   return src(paths.scss.src)
     .pipe(sass())
-    .pipe(postcss(devPlugins))
+    .pipe(postcss(prodPlugins))
     .pipe(
       rename({
         suffix: '.min',
@@ -108,3 +108,4 @@ exports.html = html;
 exports.js = js;
 exports.build = series(cleanCss, cleanJs);
 exports.default = parallel(html, js, css, serve);
+
